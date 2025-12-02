@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #1f2933, #020617);
+  color: #f9fafb;
+}
+
+.container {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 24px 28px;
+  border-radius: 18px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.45);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  color: #e5e7eb;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.number-btn {
+  padding: 16px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+}
+
+.number-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.7);
+}
+
+.number-btn.correct {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #f9fafb;
+}
+
+.number-btn.disabled {
+  opacity: 0.4;
+  cursor: default;
+  box-shadow: none;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: #f9fafb;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.btn.small {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+}
+
+.message {
+  margin-top: 10px;
+  min-height: 20px;
+  font-size: 0.92rem;
+}
+
+.message.success {
+  color: #22c55e;
+}
+
+.message.error {
+  color: #f97316;
+}
+
+.shake {
+  animation: shake 0.25s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+/* =========================
+   Celebration overlay
+   ========================= */
+
+.celebration {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), rgba(3, 7, 18, 0.98));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.hidden {
+  display: none;
+}
+
+.celebration-content {
+  position: relative;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 24px 32px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  border: 1px solid rgba(129, 140, 248, 0.7);
+  overflow: hidden;
+}
+
+.celebration-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.celebration-content p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+/* Fireworks / party animation */
+.fireworks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 0 #facc15,
+    16px -10px 0 0 #fb7185,
+    -14px -12px 0 0 #38bdf8,
+    -18px 8px 0 0 #4ade80,
+    10px 14px 0 0 #a855f7,
+    -8px 16px 0 0 #f97316;
+  animation: explode 1.4s ease-out infinite;
+}
+
+.f1 { top: 15%; left: 20%; animation-delay: 0s; }
+.f2 { top: 25%; right: 15%; animation-delay: 0.3s; }
+.f3 { bottom: 20%; left: 25%; animation-delay: 0.6s; }
+.f4 { bottom: 18%; right: 20%; animation-delay: 0.9s; }
+
+@keyframes explode {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
