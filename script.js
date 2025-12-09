@@ -176,3 +176,16 @@ playAgainBtn.addEventListener("click", () => {
   celebration.classList.add("hidden");
   resetGame();
 });
+greetings:async function fetchGreetings() {
+  try {
+    const response = await fetch('https://api.example.com/greetings');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data.greetings;
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error);
+    return ['Hello', 'Hi', 'Greetings', 'Salutations'];
+  }
+}
