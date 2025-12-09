@@ -1,3 +1,5 @@
+// This is Subha, editing js file to know about branch working process.
+
 const grid = document.getElementById("grid");
 const nextNumberSpan = document.getElementById("next-number");
 const timerSpan = document.getElementById("timer");
